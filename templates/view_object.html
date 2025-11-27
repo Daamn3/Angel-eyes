@@ -1,0 +1,97 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{% extends 'index.html' %}
+{% block body %}
+<body>
+{% for i in messages %}
+    {{ i }}
+{% endfor %}
+{#<a href="/myapp/objects_manage_get/" class="btn btn-primary w-auto">add</a>#}
+{#<table border="1" border="1" class="table table-dark">#}
+{#    <thead>#}
+{#    <tr>#}
+{#        <th>Object</th>#}
+{#        <th>Image</th>#}
+{#        <th>Details</th>#}
+{#    </tr>#}
+{#    <tbody>#}
+{#     {% for i in data %}#}
+{#          <tr>#}
+{#          <td>{{ i.Name }}</td>#}
+{#          <td>#}
+{#              <img src="/media/{{ i.image}}" height="100" alt="">#}
+{#          </td>#}
+{#          <td>{{ i.details }}</td>#}
+{#          <td>#}
+{#              <a href="/myapp/edit_objects_get/{{ i.id }}">edit</a>#}
+{#              <a href="/myapp/delete_object/{{ i.id }}">delete</a>#}
+{#          </td>#}
+{#      </tr>#}
+{#     {% endfor %}#}
+{#    </tbody>#}
+{#    </thead>#}
+{#</table>#}
+          <div class="col-lg-8 d-flex align-items-stretch  w-100">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">View Objects</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                  <a href="/myapp/objects_manage_get/" class="btn btn-primary w-auto">add</a>
+                    <thead class="text-dark fs-4">
+
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Id</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Objects</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Images</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Details</h6>
+                        </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {%for i in data%}
+                      <tr>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                        <td class="border-bottom-0">
+                            {{ forloop.counter }}
+                            <span class="fw-normal">{{ i.Name }}</span>
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal"> <img src="/media/{{ i.image}}" height="100" alt=""></p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.details }}</span>
+                          </div>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0 fs-4">
+                              <a href="/myapp/edit_objects_get/{{ i.id }}">edit</a>
+                              <a href="/myapp/delete_object/{{ i.id }}">delete</a>
+                          </h6>
+                        </td>
+                      </tr>
+                    {%endfor%}
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+{% endblock %}
+</html>

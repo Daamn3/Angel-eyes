@@ -1,0 +1,102 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>view complaint</title>#}
+{#</head>#}
+{% extends 'index.html' %}
+{% block body %}
+<body>
+{#<table border="1" border="1" class="table table-dark">#}
+{#    <thead>#}
+{#    <tr>#}
+{#        <th>SLNO</th>#}
+{#        <th>Complaint</th>#}
+{#        <th>Date</th>#}
+{#        <th>reply</th>#}
+{#        <th>Caretaker</th>#}
+{#        <th>reply</th>#}
+{#    </tr>#}
+{#    </thead>#}
+{#    <tbody>#}
+{#    {%for i in data %}#}
+{#        <tr>#}
+{#        <td>{{ forloop.counter }}</td>#}
+{#        <td>{{ i.comp }}</td>#}
+{#        <td>{{ i.date }}</td>#}
+{#            <td>{{ i.reply }}</td>#}
+{#        <td>{{ i.CARETAKER.fname }} {{ i.CARETAKER.lname }}</td>#}
+{#                <td><a href="/myapp/send_reply_get/{{ i.id }}">Send</a></td>#}
+{##}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#    </tbody>#}
+{#</table>#}
+{#<------------------------------------------->#}
+{#<------------------------------------------->#}
+{#<------------------------------------------->#}
+
+{#<------------------------------------------->#}
+<div class="col-lg-8 d-flex align-items-stretch  w-100">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">View Complaints</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+{#                  <a href="/myapp/objects_manage_get/" class="btn btn-primary w-auto">add</a>#}
+                    <thead class="text-dark fs-4">
+
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">SlNO</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Complaints</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Date</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Reply</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Caretaker</h6>
+                        </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {%for i in data%}
+                      <tr>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                        <td class="border-bottom-0">
+                            {{ i.LOGIN }}
+                            <span class="fw-normal">{{ i.comp }}</span>
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal"> {{ i.date}}</p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.reply }}</span>
+                          </div>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0 fs-4">
+                              {{ i.CARETAKER.fname }} {{ i.CARETAKER.lname }}
+                          </h6>
+                        </td>
+                      <td> <td><a href="/myapp/send_reply_get/{{ i.id }}">Send</a></td></td>
+                      </tr>
+                    {%endfor%}
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+{% endblock %}
+</html>

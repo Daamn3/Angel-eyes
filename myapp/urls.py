@@ -1,0 +1,39 @@
+"""
+URL configuration for main_project project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
+
+from myapp import views
+
+urlpatterns = [
+    path('login_get/',views.login_get),
+    path('login_post/',views.login_post),
+    path('index_get/',views.index_get),
+    path('forgotpass_get/',views.forgotpass_get),
+    path('send_reply_get/<id>',views.send_reply_get),
+    path('view_blindperson_get/',views.view_blindperson_get),
+    path('view_caretaker_get/',views.view_caretaker_get),
+    path('view_complaint_get/',views.view_complaint_get),
+    path('objects_manage_get/',views.objects_manage_get),
+    path('view_object_get/',views.view_object_get),
+    path('objects_manage_post/',views.objects_manage_post),
+    path('edit_objects_get/<id>',views.edit_objects_get),
+    path('edit_objects_post/',views.edit_objects_post),
+    path('delete_object/<id>',views.delete_object),
+    path('send_reply_post/',views.send_reply_post),
+
+]

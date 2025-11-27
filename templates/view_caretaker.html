@@ -1,0 +1,154 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>view caretaker</title>#}
+{#</head>#}
+{% extends 'index.html' %}
+{% block body %}
+{#<body>#}
+{#<table border="1" class="table table-dark" >#}
+{#    <thead>#}
+{#    <tr>#}
+{#        <th>SLNO</th>#}
+{#        <th>First Name</th>#}
+{#        <th>Last Name</th>#}
+{#        <th>Gender</th>#}
+{#        <th>Place</th>#}
+{#        <th>Post</th>#}
+{#        <th>Photo</th>#}
+{#        <th>pin</th>#}
+{#        <th>phone</th>#}
+{#        <th>E-Mail</th>#}
+{#    </tr>#}
+{#    </thead>#}
+{#    <tbody>#}
+{#    {%for i in data%}#}
+{#    <tr>#}
+{#        <td>{{ forloop.counter }}</td>#}
+{#        <td>{{ i.fname }}</td>#}
+{#        <td>{{ i.lnamae }}</td>#}
+{#        <td>{{ i.gender }}</td>#}
+{#        <td>{{ i.place }}</td>#}
+{#        <td>{{ i.post }}</td>#}
+{#        <td> <img src="/media/{{ i.photo}}" height="100" alt=""></td>#}
+{#        <td>{{ i.pin }}</td>#}
+{#        <td>{{ i.phone }}</td>#}
+{#        <td>{{ i.email }}</td>#}
+{#    </tr>#}
+{#    {%endfor%}#}
+{#    </tbody>#}
+{#</table>#}
+{#<------------------------------>#}
+{#<------------------------------>#}
+{#<------------------------------>#}
+<div class="col-lg-8 d-flex align-items-stretch w-100 ">
+            <div class="card w-100">
+              <div class="card-body p-4 w-full">
+                <h5 class="card-title fw-semibold mb-4">View Caretaker</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+{#                  <a href="/myapp/objects_manage_get/" class="btn btn-primary w-auto">add</a>#}
+                    <thead class="text-dark fs-4">
+
+                      <tr>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">SLNO</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">fname</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">lname</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Gender</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Place</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Post</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Photo</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Pin</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Phone</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Email</h6>
+                        </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {%for i in data%}
+                      <tr>
+                          <td class="border-bottom-0">
+                            <span class="fw-normal">{{ forloop.counter }} </span>
+                        </td>
+                        <td class="border-bottom-0">
+                            <span class="fw-normal">{{ i.fname }}</span>
+                        </td>
+                          <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.lname }}</span>
+                          </div>
+                        </td>
+                          <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.gender }}</span>
+                          </div>
+
+                        </td>
+                          <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.place }}</span>
+                          </div>
+                              </td>
+                          <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.post }}</span>
+                          </div>
+                          </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal"> <img src="/media/{{ i.photo}}" height="100" alt=""></p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.pin }}</span>
+                          </div>
+                        </td>
+                          <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.phone }}</span>
+                          </div>
+                              </td>
+                          <td>
+                          <div class="d-flex align-items-center gap-2">
+                            <span class=" rounded-3 fw-semibold">{{ i.email }}</span>
+                          </div>
+                              </td>
+{#                        <td class="border-bottom-0">#}
+{#                          <h6 class="fw-semibold mb-0 fs-4">#}
+{#                              <a href="/myapp/edit_objects_get/{{ i.id }}">edit</a>#}
+{#                              <a href="/myapp/delete_object/{{ i.id }}">delete</a>#}
+{#                          </h6>#}
+{#                        </td>#}
+                      </tr>
+                    {%endfor%}
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+{% endblock %}
+</html>
