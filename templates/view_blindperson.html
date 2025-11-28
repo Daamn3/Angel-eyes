@@ -1,47 +1,7 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>view blind person</title>#}
-{#</head>#}
+
 {% extends 'index.html' %}
 {% block body %}
-{#<body>#}
-{#<table border="1" class="table table-dark" >#}
-{#    <thead>#}
-{#    <tr>#}
-{#        <th>SLNO</th>#}
-{#        <th>Name</th>#}
-{#        <th>E-Mail</th>#}
-{#        <th>Phone</th>#}
-{#        <th>Photo</th>#}
-{#        <th>Place</th>#}
-{#        <th>Post</th>#}
-{#        <th>pin</th>#}
-{#        <th>Caretaker</th>#}
-{#    </tr>#}
-{#    </thead>#}
-{#    <tbody>#}
-{#    {%for i in data%}#}
-{#    <tr>#}
-{#        <td>{{ forloop.counter }}</td>#}
-{#        <td>{{ i.name }}</td>#}
-{#        <td>{{ i.email }}</td>#}
-{#        <td>{{ i.phone }}</td>#}
-{#        <td> <img src="/media/{{ i.photo}}" height="100" alt=""></td>#}
-{#        <td>{{ i.place }}</td>#}
-{#        <td>{{ i.post }}</td>#}
-{#        <td>{{ i.pin }}</td>#}
-{#        <td>{{ i.CARETAKER }}</td>#}
-{#    </tr>#}
-{#    {%endfor%}#}
-{#    </tbody>#}
-{#</table>#}
 
-{#<----------------------------------------------->#}
-{#<----------------------------------------------->#}
-{#<----------------------------------------------->#}
-{#<----------------------------------------------->#}
 <div class="col-lg-8 d-flex align-items-stretch w-100 ">
             <div class="card w-100">
               <div class="card-body p-4 w-full">
@@ -93,27 +53,27 @@
                         </td>
                           <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class=" rounded-3 fw-semibold">{{ i.lname }}</span>
+                            <span class=" rounded-3 fw-semibold">{{ i.email }}</span>
                           </div>
                         </td>
                           <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class=" rounded-3 fw-semibold">{{ i.gender }}</span>
+                            <span class=" rounded-3 fw-semibold">{{ i.phone }}</span>
                           </div>
 
                         </td>
                           <td>
                           <div class="d-flex align-items-center gap-2">
-                            <span class=" rounded-3 fw-semibold">{{ i.place }}</span>
+                             <p class="mb-0 fw-normal"> <img src="/media/{{ i.photo}}" height="100" alt=""></p>
                           </div>
                               </td>
                           <td>
                           <div class="d-flex align-items-center gap-2">
-                            <span class=" rounded-3 fw-semibold">{{ i.post }}</span>
+                            <span class=" rounded-3 fw-semibold">{{ i.place }}</span>
                           </div>
                           </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal"> <img src="/media/{{ i.photo}}" height="100" alt=""></p>
+                         <span class=" rounded-3 fw-semibold">{{ i.post }}</span>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
@@ -122,14 +82,10 @@
                         </td>
                           <td>
                           <div class="d-flex align-items-center gap-2">
-                            <span class=" rounded-3 fw-semibold">{{ i.phone }}</span>
+                            <span class=" rounded-3 fw-semibold">{{ i.CARETAKER.fname }} {{ i.CARETAKER.lname }}</span>
                           </div>
                               </td>
-                          <td>
-                          <div class="d-flex align-items-center gap-2">
-                            <span class=" rounded-3 fw-semibold">{{ i.email }}</span>
-                          </div>
-                              </td>
+
 {#                        <td class="border-bottom-0">#}
 {#                          <h6 class="fw-semibold mb-0 fs-4">#}
 {#                              <a href="/myapp/edit_objects_get/{{ i.id }}">edit</a>#}
@@ -148,5 +104,5 @@
         </div>
 
 </body>
-{% endblock %}
 {#</html>#}
+{% endblock %}

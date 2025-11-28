@@ -22,6 +22,7 @@ from myapp import views
 urlpatterns = [
     path('login_get/',views.login_get),
     path('login_post/',views.login_post),
+    path('logout_all/',views.logout_all),
     path('index_get/',views.index_get),
     path('forgotpass_get/',views.forgotpass_get),
     path('send_reply_get/<id>',views.send_reply_get),

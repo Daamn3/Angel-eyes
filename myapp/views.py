@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 
@@ -35,10 +35,15 @@ def login_post(request):
         # print('ttttttttttttttt')
 
 
+def logout_all(request):
+    logout(request)
+    return redirect('/myapp/login_get/')
 
 
 def index_get(request):
-    return render(request,'index.html')
+    a=blind.objects.all().count()
+    b=caretaker.objects.all().count()
+    return render(request,'index.html',{'cn':a,'bn':b})
 
 def forgotpass_get(request):
     return render(request,'forgotpass.html')
