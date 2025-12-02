@@ -122,3 +122,6 @@ def send_reply_post(request):
     messages.success(request,'successfully sended')
     return redirect('/myapp/view_complaint_get/')
 
+
+
+
