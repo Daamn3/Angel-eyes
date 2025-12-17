@@ -36,5 +36,9 @@ urlpatterns = [
     path('edit_objects_post/',views.edit_objects_post),
     path('delete_object/<id>',views.delete_object),
     path('send_reply_post/',views.send_reply_post),
+    path('ct_register/',views.ct_register),
+    path('ct_home/',views.ct_home),
+    path('pro_pic/',views.pro_pic),
+    path('pro_det/',views.pro_det),
 
 ]

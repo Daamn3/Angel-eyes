@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User, Group
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -122,6 +124,85 @@ def send_reply_post(request):
     messages.success(request,'successfully sended')
     return redirect('/myapp/view_complaint_get/')
 
+def  ct_register(request):
+    fname=request.POST['fname']
+    lname=request.POST['lname']
+    place=request.POST['place']
+    post=request.POST['post']
+    pin=request.POST['pin']
+    phone=request.POST['phone']
+    photo=request.FILES['photo']
+    username=request.POST['username']
+    password=request.POST['password']
+    email=request.POST['email']
+    if User.objects.filter(username= username).exists():
+        return JsonResponse({'status':'user already exists'})
+    else:
+        user=User.objects.create_user(username=username,password=password)
+        user.groups.add(Group.objects.get(name='Caretaker'))
+        a=caretaker()
+        a.fname=fname
+        a.lname=lname
+        a.place=place
+        a.pin=pin
+        a.post=post
+        a.phone=phone
+        a.email=email
+        a.photo=photo
+        a.LOGIN=user
+        a.save()
+        print(password)
+        return JsonResponse({'status':'registered successfully'});
+
+def ct_home(request):
+    un=request.POST['uname']
+    pw=request.POST['pass']
+    print(un,pw)
+    user = authenticate(request, username=un, password=pw)
+    if user is not None:
+        if user.groups.filter(name='Caretaker').exists():
+            lid =user.id
+            return JsonResponse({'message':'login successfull','lid':lid})
+        else:
+            print('1st else')
+            return JsonResponse({'message':'invalid credentials'})
+
+    else:
+        return JsonResponse({'message':'invalid username or password'})
+
+
+
+def pro_pic(request):
+    lid=request.POST['lid']
+    id=caretaker.objects.get(LOGIN_id=lid)
+    pfp=id.photo.url
+    return JsonResponse({
+        'photo':pfp
+    })
+
+def pro_det(request):
+    lid=request.POST['lid']
+    id=caretaker.objects.get(LOGIN_id=lid)
+    fname=id.fname
+    lname=id.lname
+    gender=id.gender
+    place=id.place
+    post=id.post
+    photo=id.photo.url
+    pin=id.pin
+    phone=id.phone
+    email=id.email
+    return JsonResponse({
+        'fname' : fname,
+        'lname' : lname,
+        'gender' :gender,
+        'place': place,
+        'post':post,
+        'photo': photo,
+        'pin':pin,
+        'phone' : phone,
+        'email': email,
+    })
 
 
 
