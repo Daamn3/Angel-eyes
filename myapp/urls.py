@@ -40,5 +40,19 @@ urlpatterns = [
     path('ct_home/',views.ct_home),
     path('pro_pic/',views.pro_pic),
     path('pro_det/',views.pro_det),
+    path('Editprof/',views.Editprof),
+    path('Editprof_post/',views.Editprof_post),
+    path('viewbp/',views.viewbp),
+    path('addbp/',views.addbp),
+    path('editbp/',views.editbp),
+    path('editbp_post/',views.editbp_post),
+
+    path('delete_blind/',views.delete_blind),
+    path('viewfp/',views.viewfp),
+    path('addfp/',views.addfp),
+    path('caretaker_view_blind_for_fami/',views.caretaker_view_blind_for_fami),
+
+
+
 
 ]
